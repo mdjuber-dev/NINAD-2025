@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details - City College Sports Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-simple">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Game Details</h1>
+                        <p>City College Jayanagar</p>
+                    </div>
+                </div>
+                <div class="nav-actions">
+                    <a href="index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Dashboard
+                    </a>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Details Content -->
+    <section class="game-details-section">
+        <div class="container">
+            <div class="game-details-card">
+                <div class="game-header">
+                    <div class="game-icon" id="gameIcon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="game-title-section">
+                        <h1 id="gameTitle">Free Fire</h1>
+                        <p id="gameCategory">E-Sports</p>
+                        <span class="game-fee" id="gameFee">Free</span>
+                    </div>
+                </div>
+
+                <div class="game-content">
+                    <div class="game-description">
+                        <h3><i class="fas fa-info-circle"></i> About the Game</h3>
+                        <p id="gameDescription">Battle royale mobile game tournament with exciting prizes. Show your shooting skills and strategic gameplay in this ultimate survival competition.</p>
+                    </div>
+
+                    <div class="game-details-grid">
+                        <div class="detail-card">
+                            <h4><i class="fas fa-calendar-alt"></i> Event Date</h4>
+                            <p id="gameDate">March 15, 2025</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-clock"></i> Timing</h4>
+                            <p id="gameTiming">10:00 AM - 2:00 PM</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-map-marker-alt"></i> Venue</h4>
+                            <p id="gameVenue">Computer Lab A</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-users"></i> Team Size</h4>
+                            <p id="teamSize">4 players per team</p>
+                        </div>
+                    </div>
+
+                    <div class="rules-section">
+                        <h3><i class="fas fa-list"></i> Rules & Regulations</h3>
+                        <ul id="gameRules">
+                            <li>Maximum 4 players per team</li>
+                            <li>Tournament format: Battle Royale</li>
+                            <li>No cheating or hacking allowed</li>
+                            <li>Mobile devices only</li>
+                            <li>Players must bring their own devices</li>
+                            <li>Registration closes 1 hour before event</li>
+                        </ul>
+                    </div>
+
+                    <div class="prizes-section">
+                        <h3><i class="fas fa-trophy"></i> Prizes</h3>
+                        <div class="prizes-grid">
+                            <div class="prize-card gold">
+                                <i class="fas fa-trophy"></i>
+                                <h4>1st Place</h4>
+                                <p>₹5,000</p>
+                            </div>
+                            <div class="prize-card silver">
+                                <i class="fas fa-medal"></i>
+                                <h4>2nd Place</h4>
+                                <p>₹3,000</p>
+                            </div>
+                            <div class="prize-card bronze">
+                                <i class="fas fa-award"></i>
+                                <h4>3rd Place</h4>
+                                <p>₹1,500</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="registration-section">
+                        <h3><i class="fas fa-user-plus"></i> Registration</h3>
+                        <p>Ready to participate? Register now and secure your spot in this exciting tournament!</p>
+                        <div class="registration-actions">
+                            <a href="register.html" class="register-btn">
+                                <i class="fas fa-user-plus"></i> Register Now
+                            </a>
+                            <button class="share-btn" onclick="shareGame()">
+                                <i class="fas fa-share"></i> Share Game
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 City College Jayanagar | Powered by WT | WG</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load game details from URL parameters
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGameDetails();
+            loadTheme();
+        });
+
+        function loadGameDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameName = urlParams.get('game');
+            
+            if (!gameName) {
+                // Default to Free Fire if no game specified
+                displayGameDetails('Free Fire');
+                return;
+            }
+            
+            displayGameDetails(gameName);
+        }
+
+        function displayGameDetails(gameName) {
+            // This would typically fetch from a database, but for demo we'll use static data
+            const gameData = getGameData(gameName);
+            
+            if (!gameData) {
+                document.getElementById('gameTitle').textContent = 'Game Not Found';
+                return;
+            }
+            
+            document.getElementById('gameTitle').textContent = gameData.name;
+            document.getElementById('gameCategory').textContent = gameData.category;
+            document.getElementById('gameFee').textContent = gameData.fee;
+            document.getElementById('gameDescription').textContent = gameData.description;
+            document.getElementById('gameDate').textContent = gameData.date;
+            document.getElementById('gameTiming').textContent = gameData.timing;
+            document.getElementById('gameVenue').textContent = gameData.venue;
+            document.getElementById('teamSize').textContent = gameData.teamSize;
+            
+            // Update icon
+            document.querySelector('#gameIcon i').className = gameData.icon;
+            
+            // Update rules
+            const rulesList = document.getElementById('gameRules');
+            rulesList.innerHTML = gameData.rules.map(rule => `<li>${rule}</li>`).join('');
+            
+            // Update page title
+            document.title = `${gameData.name} - City College Sports Dashboard`;
+        }
+
+        function getGameData(gameName) {
+            const games = {
+                'Free Fire': {
+                    name: 'Free Fire',
+                    category: 'E-Sports',
+                    fee: 'Free',
+                    icon: 'fas fa-crosshairs',
+                    description: 'Battle royale mobile game tournament with exciting prizes. Show your shooting skills and strategic gameplay in this ultimate survival competition.',
+                    date: 'March 15, 2025',
+                    timing: '10:00 AM - 2:00 PM',
+                    venue: 'Computer Lab A',
+                    teamSize: '4 players per team',
+                    rules: [
+                        'Maximum 4 players per team',
+                        'Tournament format: Battle Royale',
+                        'No cheating or hacking allowed',
+                        'Mobile devices only',
+                        'Players must bring their own devices',
+                        'Registration closes 1 hour before event'
+                    ]
+                },
+                'Cricket': {
+                    name: 'Cricket',
+                    category: 'Outdoor',
+                    fee: '₹200',
+                    icon: 'fas fa-baseball-ball',
+                    description: 'Traditional cricket tournament with professional rules. Experience the thrill of the gentleman\'s game.',
+                    date: 'March 16, 2025',
+                    timing: '8:00 AM - 6:00 PM',
+                    venue: 'Main Cricket Ground',
+                    teamSize: '11 players per team',
+                    rules: [
+                        '11 players per team',
+                        '20 overs per innings',
+                        'Professional cricket rules apply',
+                        'Proper cricket attire required',
+                        'Own equipment recommended',
+                        'Umpire decisions are final'
+                    ]
+                }
+                // Add more games as needed
+            };
+            
+            return games[gameName] || games['Free Fire'];
+        }
+
+        function shareGame() {
+            const gameTitle = document.getElementById('gameTitle').textContent;
+            const shareData = {
+                title: `${gameTitle} - City College Sports Dashboard`,
+                text: `Check out ${gameTitle} at City College Sports Fest 2025!`,
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Game link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

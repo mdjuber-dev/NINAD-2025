@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINAD 2025 - City College Jayanagar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="City College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>NINAD 2025</h1>
+                        <p>City College Jayanagar</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="cultural.html" class="nav-link">Cultural</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            
+            <!-- Hero Section -->
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="images/loggoo.png" alt="NINAD 2025 Logo" class="hero-logo-img">
+                </div>
+                <h2>Welcome to NINAD 2025</h2>
+                <p class="hero-tagline">The Ultimate Academic Management Fest</p>
+                <p class="hero-description">Join us for an extraordinary celebration of talent, knowledge, and innovation at City College Jayanagar</p>
+                <a href="#categories" class="cta-button">Explore Events</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Event Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="window.location.href='sports.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Sports</h3>
+                    <p>5 exciting sports events including Chess, Volleyball, Throwball, Carrom, and Yoga competitions</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-calendar"></i> 5 Events</span>
+                        <span><i class="fas fa-users"></i> Team & Individual</span>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='cultural.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Cultural</h3>
+                    <p>Showcase your artistic talents through dance, music, drama, and creative competitions</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-calendar"></i> 9 Events</span>
+                        <span><i class="fas fa-star"></i> Creative Arts</span>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='academics.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academics</h3>
+                    <p>Test your knowledge and management skills through quizzes, case studies, and presentations</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-calendar"></i> 15+ Events</span>
+                        <span><i class="fas fa-brain"></i> Knowledge Based</span>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='about.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>About</h3>
+                    <p>Learn more about NINAD 2025, venue details, and important information</p>
+                    <div class="category-stats">
+                        <span><i class="fas fa-map-marker-alt"></i> Venue Info</span>
+                        <span><i class="fas fa-clock"></i> Schedule</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">NINAD 2025 Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>25+ Events</h3>
+                    <p>Comprehensive range of sports, cultural, and academic competitions</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Easy Registration</h3>
+                    <p>Simple online registration process with UPI payment integration</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Cash Prize & Certificate</h3>
+                    <p>Win exciting cash prizes and certificates for your talents</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Contact our organizing team for any queries or assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Preview
+    <section class="upcoming-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Finals</h2>
+            <div class="upcoming-grid">
+                <div class="upcoming-card">
+                    <div class="upcoming-date">
+                        <span class="date">15</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="upcoming-info">
+                        <h4>Chess Tournament</h4>
+                        <p><i class="fas fa-clock"></i> 10:00 AM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Conference Hall</p>
+                    </div>
+                </div>
+
+                <div class="upcoming-card">
+                    <div class="upcoming-date">
+                        <span class="date">16</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="upcoming-info">
+                        <h4>Cultural Night</h4>
+                        <p><i class="fas fa-clock"></i> 6:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Main Auditorium</p>
+                    </div>
+                </div>
+
+                <div class="upcoming-card">
+                    <div class="upcoming-date">
+                        <span class="date">17</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="upcoming-info">
+                        <h4>Business Quiz Finals</h4>
+                        <p><i class="fas fa-clock"></i> 2:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Seminar Hall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/loggoo.png" alt="City College Logo">
+                        <h3>NINAD 2025</h3>
+                    </div>
+                    <p>The Ultimate Academic Management Fest at City College Jayanagar. Join us for an extraordinary celebration of talent and innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>No. 27/2, 33rd Cross, 2nd Main Rd, 7th Block, Jayanagar, Bengaluru, Karnataka 560082</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>fest@NINAD.edu</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 6364914155 / +91 6364914156</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="cultural.html">Cultural Events</a></li>
+                        <li><a href="academics.html">Academic Events</a></li>
+                        <li><a href="register.html">Register Now</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; NINAD 2025 | Made with ❤️ by Md Juber</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Events - NINAD 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-simple">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="City College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Academic Events</h1>
+                        <p>NINAD 2025</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="cultural.html" class="nav-link">Cultural</a></li>
+                    <li><a href="academics.html" class="nav-link active">Academics</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search academic events..." id="searchInput">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Events</button>
+                    <button class="filter-btn" data-category="bcom-bba">BCom & BBA</button>
+                    <button class="filter-btn" data-category="mba">MBA</button>
+                    <button class="filter-btn" data-category="bca-mca">BCA/MCA</button>
+                    <button class="filter-btn" data-category="language">Language</button>
+                    <button class="filter-btn" data-category="library">Library</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Events Grid -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title">Academic & Management Events 2025</h2>
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No events found</h3>
+                <p>Try adjusting your search terms or filters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; NINAD 2025 | Made with ❤️ by Md Juber</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Academic events data - ONLY the events specified
+        const academicEvents = [
+            // BCom & BBA Department
+            {
+                id: 'logo-tagline-creation',
+                name: "Logo & Tagline Creation",
+                description: "Create original logos and taglines. Hand-drawn accepted but must be submitted digitally. Tagline ≤ 8 words.",
+                fee: "₹199",
+                category: "bcom-bba",
+                icon: "fas fa-paint-brush",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'business-quiz',
+                name: "Business Quiz",
+                description: "Team of exactly 2 members. Two rounds: preliminary written test and live final with buzzer rounds.",
+                fee: "₹99 / ₹499",
+                category: "bcom-bba",
+                icon: "fas fa-question-circle",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'best-manager',
+                name: "Best Manager",
+                description: "Individual participation. 3 rounds: IQ/Business quiz, Managerial interview, Case Study/Crisis Management.",
+                fee: "₹199",
+                category: "bcom-bba",
+                icon: "fas fa-user-tie",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'startup-ideas',
+                name: "New Startup Ideas (Startup Spark 2025)",
+                description: "Teams up to 4 members. Original ideas only. Business plan feasible for ≤ ₹25 lakh capital.",
+                fee: "₹99 / ₹499",
+                category: "bcom-bba",
+                icon: "fas fa-lightbulb",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'appathon',
+                name: "Appathon (Web Dev)",
+                description: "Languages: HTML, CSS, JavaScript. Duration: 10:30 AM – 3:00 PM. 3 rounds, each 2 hours. Team size: 1 or 2.",
+                fee: "₹99 / ₹499",
+                category: "bca-mca",
+                icon: "fas fa-code",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'latent-bug',
+                name: "Latent Bug (Debugging)",
+                description: "3 rounds: Preliminary (C), Semi (C++), Final (Java). Team size: 1 or 2. Each round: 2 hours.",
+                fee: "₹99 / ₹499",
+                category: "bca-mca",
+                icon: "fas fa-bug",
+                prize: "Cash Prize & Certificate"
+            },
+            // MBA Department
+            {
+                id: 'digital-treasure-hunt',
+                name: "Digital Treasure Hunt",
+                description: "Teams of min 3, max 4 members. Use provided computers only. Clues solved in sequence.",
+                fee: "₹200",
+                category: "mba",
+                icon: "fas fa-search",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'crazy-minute-challenges',
+                name: "Crazy Minute Challenges",
+                description: "Teams of 3–4. Multiple 1-minute tasks per round. Judges evaluate creativity, teamwork, performance.",
+                fee: "₹200",
+                category: "mba",
+                icon: "fas fa-clock",
+                prize: "Cash Prize & Certificate"
+            },
+            // MCA/BCA Technical Events
+            {
+                id: 'code-crafting',
+                name: "Code Crafting",
+                description: "Open to individuals (MCA). Coding challenges on-site. Allowed languages: C, Java, Python.",
+                fee: "₹99",
+                category: "bca-mca",
+                icon: "fas fa-laptop-code",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'technical-quiz',
+                name: "Technical Quiz",
+                description: "Team size up to 2–3. Multiple rounds (MCQ, rapid fire, visual/audio). No mobile or internet use.",
+                fee: "₹499",
+                category: "bca-mca",
+                icon: "fas fa-laptop-code",
+                prize: "Cash Prize & Certificate"
+            },
+            // Department Events
+            {
+                id: 'public-speaking',
+                name: "Public Speaking - AI: The Future of Classrooms or the End of Teachers?",
+                description: "Topic: AI: The Future of Classrooms or the End of Teachers. Individual presentation competition.",
+                fee: "₹99",
+                category: "language",
+                icon: "fas fa-microphone",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'literary-quest',
+                name: "Literary Quest (Treasure Hunt)",
+                description: "Literature-based treasure hunt with clues and challenges. Team-based competition.",
+                fee: "₹199",
+                category: "language",
+                icon: "fas fa-book",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'debate-ai-education',
+                name: "ಕೃತಕ ಬುದ್ದಿಮತ್ತೆ (AI) ಶೈಕ್ಷಣಿಕ ಕ್ಷೇತ್ರಕ್ಕೆ ಪೂರಕವೇ? ಮಾರಕವೇ?",
+                description: "Debate competition on AI in Education. Teams argue for and against the motion.",
+                fee: "₹99",
+                category: "language",
+                icon: "fas fa-comments",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'kannada-quiz',
+                name: "ರಸಪ್ರಶ್ನೆ ಸ್ಪರ್ಧೆ: ಕನ್ನಡ ಸಾಹಿತ್ಯ, ಕರ್ನಾಟಕದ ಇತಿಹಾಸ, ರಾಜಕೀಯ, ಭೌಗೋಳ ಮತ್ತು ಸಂಸ್ಕೃತಿ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳಿರುತ್ತವೆ",
+                description: "Literature, Culture, History, Politics, Geography. Test your knowledge of Karnataka and Kannada.",
+                fee: "₹99",
+                category: "language",
+                icon: "fas fa-question-circle",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'hindi-antakshari',
+                name: "हंदी अंताक्षरी",
+                description: "Traditional Hindi song-based game. Teams compete in musical knowledge and quick thinking.",
+                fee: "₹499",
+                category: "language",
+                icon: "fas fa-music",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'general-knowledge-quiz',
+                name: "General Knowledge Quiz",
+                description: "Constitution, History, Geography, Sports, Science, Current Affairs. Comprehensive GK competition.",
+                fee: "₹99",
+                category: "library",
+                icon: "fas fa-globe",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'debate-and-panel-disc',
+                name: "Debate and Panel Discussion",
+                description: "Debate and Panel Discussion: on Reading Habits, Digital libraries VS. Traditional Libraries (Print Materials) etc.",
+                fee: "₹99",
+                category: "library",
+                icon: "fas fa-comment",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'hindi-debate',
+                name: "वाद ववाद प्रतयोगता",
+                description: "Topic: Traditional culture Vs modern culture",
+                fee: "₹99",
+                category: "language",
+                icon: "fas fa-comments",
+                prize: "Cash Prize & Certificate"
+            }
+        ];
+
+        let filteredEvents = [...academicEvents];
+        let currentCategory = 'all';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderEvents();
+            setupEventListeners();
+            loadTheme();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', handleSearch);
+            }
+
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    filterEvents();
+                });
+            });
+        }
+
+        // Render events grid
+        function renderEvents() {
+            const eventsGrid = document.getElementById('eventsGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (!eventsGrid) return;
+            
+            if (filteredEvents.length === 0) {
+                eventsGrid.style.display = 'none';
+                if (noResults) noResults.style.display = 'block';
+                return;
+            }
+            
+            eventsGrid.style.display = 'grid';
+            if (noResults) noResults.style.display = 'none';
+            
+            eventsGrid.innerHTML = filteredEvents.map(event => `
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-icon">
+                            <i class="${event.icon}"></i>
+                        </div>
+                        <div>
+                            <h3 class="event-title">${event.name}</h3>
+                            <span class="event-category">${event.category.charAt(0).toUpperCase() + event.category.slice(1).replace('-', ' & ')}</span>
+                        </div>
+                    </div>
+                    <p class="event-description">${event.description}</p>
+                    <span class="event-fee paid">${event.fee}</span>
+                    <div class="event-prize">
+                        <i class="fas fa-trophy"></i> ${event.prize}
+                    </div>
+                    <div class="event-actions">
+                        <a href="event-details.html?id=${event.id}" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </a>
+                        <a href="register.html?event=${encodeURIComponent(event.name)}" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Handle search functionality
+        function handleSearch(event) {
+            const searchTerm = event.target.value.toLowerCase().trim();
+            filterEvents(searchTerm);
+        }
+
+        // Filter events by category and search term
+        function filterEvents(searchTerm = '') {
+            const searchInput = document.getElementById('searchInput');
+            const currentSearchTerm = searchTerm || (searchInput ? searchInput.value.toLowerCase().trim() : '');
+            
+            filteredEvents = academicEvents.filter(event => {
+                const matchesCategory = currentCategory === 'all' || event.category === currentCategory;
+                const matchesSearch = currentSearchTerm === '' || 
+                    event.name.toLowerCase().includes(currentSearchTerm) ||
+                    event.description.toLowerCase().includes(currentSearchTerm);
+                
+                return matchesCategory && matchesSearch;
+            });
+            
+            renderEvents();
+        }
+    </script>
+</body>
+</html>

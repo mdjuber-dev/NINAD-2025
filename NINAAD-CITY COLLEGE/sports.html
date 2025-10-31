@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Events - NINAD 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-simple">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="City College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Sports Events</h1>
+                        <p>NINAD 2025</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sports.html" class="nav-link active">Sports</a></li>
+                    <li><a href="cultural.html" class="nav-link">Cultural</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search sports events..." id="searchInput">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Sports</button>
+                    <button class="filter-btn" data-category="indoor">Indoor</button>
+                    <button class="filter-btn" data-category="outdoor">Outdoor</button>
+                    <button class="filter-btn" data-category="wellness">Wellness</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Events Grid -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title">Sports Events 2025</h2>
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No events found</h3>
+                <p>Try adjusting your search terms or filters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; NINAD 2025 | Made with ❤️ by Md Juber</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sports events data - ONLY the 5 events specified
+        const sportsEvents = [
+            {
+                id: 'chess',
+                name: "Chess",
+                description: "Strategic chess tournament following All India Chess Federation (AICF) rules. 20-minute matches with 10 minutes per player.",
+                fee: "₹99",
+                category: "indoor",
+                icon: "fas fa-chess",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'volleyball',
+                name: "Volleyball",
+                description: "Team volleyball tournament with 6+6 players. Maximum 3 hits per side with standard volleyball rules.",
+                fee: "₹499",
+                category: "outdoor",
+                icon: "fas fa-volleyball-ball",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'throwball',
+                name: "Throwball",
+                description: "Team throwball tournament with 7+5 players. Ball must be thrown within 3 seconds after being caught.",
+                fee: "₹499",
+                category: "outdoor",
+                icon: "fas fa-volleyball-ball",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'carrom',
+                name: "Carrom",
+                description: "2v2 carrom tournament with 20-minute matches. Game style format with highest points winner.",
+                fee: "₹199",
+                category: "indoor",
+                icon: "fas fa-circle",
+                prize: "Cash Prize & Certificate"
+            },
+            {
+                id: 'yoga',
+                name: "Yoga",
+                description: "Yoga asana competition with compulsory Surya Namaskara and optional asanas. Scored out of 100 marks.",
+                fee: "₹99",
+                category: "wellness",
+                icon: "fas fa-leaf",
+                prize: "Cash Prize & Certificate"
+            }
+        ];
+
+        let filteredEvents = [...sportsEvents];
+        let currentCategory = 'all';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderEvents();
+            setupEventListeners();
+            loadTheme();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', handleSearch);
+            }
+
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    filterEvents();
+                });
+            });
+        }
+
+        // Render events grid
+        function renderEvents() {
+            const eventsGrid = document.getElementById('eventsGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (!eventsGrid) return;
+            
+            if (filteredEvents.length === 0) {
+                eventsGrid.style.display = 'none';
+                if (noResults) noResults.style.display = 'block';
+                return;
+            }
+            
+            eventsGrid.style.display = 'grid';
+            if (noResults) noResults.style.display = 'none';
+            
+            eventsGrid.innerHTML = filteredEvents.map(event => `
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-icon">
+                            <i class="${event.icon}"></i>
+                        </div>
+                        <div>
+                            <h3 class="event-title">${event.name}</h3>
+                            <span class="event-category">${event.category.charAt(0).toUpperCase() + event.category.slice(1)}</span>
+                        </div>
+                    </div>
+                    <p class="event-description">${event.description}</p>
+                    <span class="event-fee paid">${event.fee}</span>
+                    <div class="event-prize">
+                        <i class="fas fa-trophy"></i> ${event.prize}
+                    </div>
+                    <div class="event-actions">
+                        <a href="event-details.html?id=${event.id}" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </a>
+                        <a href="register.html?event=${encodeURIComponent(event.name)}" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Handle search functionality
+        function handleSearch(event) {
+            const searchTerm = event.target.value.toLowerCase().trim();
+            filterEvents(searchTerm);
+        }
+
+        // Filter events by category and search term
+        function filterEvents(searchTerm = '') {
+            const searchInput = document.getElementById('searchInput');
+            const currentSearchTerm = searchTerm || (searchInput ? searchInput.value.toLowerCase().trim() : '');
+            
+            filteredEvents = sportsEvents.filter(event => {
+                const matchesCategory = currentCategory === 'all' || event.category === currentCategory;
+                const matchesSearch = currentSearchTerm === '' || 
+                    event.name.toLowerCase().includes(currentSearchTerm) ||
+                    event.description.toLowerCase().includes(currentSearchTerm);
+                
+                return matchesCategory && matchesSearch;
+            });
+            
+            renderEvents();
+        }
+    </script>
+</body>
+</html>

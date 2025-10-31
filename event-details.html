@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - NINAD 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-simple">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="City College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Event Details</h1>
+                        <p>NINAD 2025</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="cultural.html" class="nav-link">Cultural</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Event Details Content -->
+    <section class="event-details-section">
+        <div class="container">
+            <div class="event-details-card">
+                <div class="event-header">
+                    <div class="event-icon" id="eventIcon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="event-title-section">
+                        <h1 id="eventTitle">Chess</h1>
+                        <p id="eventCategory">Indoor Sports</p>
+                        <span class="event-fee paid" id="eventFee">₹99</span>
+                    </div>
+                </div>
+
+                <div class="event-content">
+                    <div class="event-description">
+                        <h3><i class="fas fa-info-circle"></i> About the Event</h3>
+                        <p id="eventDescription">Strategic chess tournament following All India Chess Federation (AICF) rules. 20-minute matches with 10 minutes per player.</p>
+                    </div>
+
+                    <div class="event-details-grid">
+                        <div class="detail-card">
+                            <h4><i class="fas fa-calendar-alt"></i> Event Date</h4>
+                            <p id="eventDate">September 28-29, 2025</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-clock"></i> Timing</h4>
+                            <p id="eventTiming">9:00 AM - 6:00 PM</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-map-marker-alt"></i> Venue</h4>
+                            <p id="eventVenue">City College Jayanagar</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-users"></i> Team Size</h4>
+                            <p id="teamSize">Individual</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-user-tie"></i> Contact Person</h4>
+                            <p id="contactPerson">Shreyas - +91 9449405318</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4><i class="fas fa-trophy"></i> Prize</h4>
+                            <p id="prizeInfo">Cash Prize & Certificate</p>
+                        </div>
+                    </div>
+
+                    <div class="rules-section">
+                        <h3><i class="fas fa-list"></i> Rules & Regulations</h3>
+                        <ul id="eventRules">
+                            <li>Comply with All India Chess Federation (AICF) Rules & Protocols</li>
+                            <li>Match duration: 20 mins (10 mins each player)</li>
+                            <li>Pawn reaching 8th rank must be promoted (usually Queen)</li>
+                            <li>Standard chess rules apply, players must use the clock correctly</li>
+                            <li>"ADJUST" must be announced before adjusting a piece, else penalty</li>
+                            <li>Arbiter's decisions are final</li>
+                            <li>En passant rule not acceptable</li>
+                        </ul>
+                    </div>
+
+                    <div class="coordinators-section">
+                        <h3><i class="fas fa-users"></i> Event Coordinators</h3>
+                        <div class="coordinators-grid" id="coordinatorsGrid">
+                            <div class="coordinator-card">
+                                <h4>Student Coordinator</h4>
+                                <p>Shreyas - +91 9449405318</p>
+                            </div>
+                            <div class="coordinator-card">
+                                <h4>Faculty Coordinator</h4>
+                                <p>Sudhakar - +91 8073038440</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="registration-section">
+                        <h3><i class="fas fa-user-plus"></i> Registration</h3>
+                        <p>Ready to participate? Register now and secure your spot in this exciting event!</p>
+                        <div class="registration-actions">
+                            <a href="register.html" class="register-btn" id="registerBtn">
+                                <i class="fas fa-user-plus"></i> Register Now
+                            </a>
+                            <button class="share-btn" onclick="shareEvent()">
+                                <i class="fas fa-share"></i> Share Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; NINAD 2025 | Made with ❤️ by Md Juber</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Combined event data from all categories
+        const allEvents = {
+            // Sports Events
+            'chess': {
+                name: 'Chess',
+                category: 'Indoor Sports',
+                fee: '₹99',
+                icon: 'fas fa-chess',
+                description: 'Strategic chess tournament following All India Chess Federation (AICF) rules. 20-minute matches with 10 minutes per player.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'Conference Hall',
+                teamSize: 'Individual',
+                contactPerson: 'Shreyas - +91 9449405318',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Comply with All India Chess Federation (AICF) Rules & Protocols',
+                    'Match duration: 20 mins (10 mins each player)',
+                    'Pawn reaching 8th rank must be promoted (usually Queen)',
+                    'Standard chess rules apply, players must use the clock correctly',
+                    '"ADJUST" must be announced before adjusting a piece, else penalty',
+                    'Arbiter\'s decisions are final',
+                    'En passant rule not acceptable'
+                ],
+                coordinators: [
+                    { type: 'Student Coordinator', name: 'Shreyas', phone: '+91 9449405318' },
+                    { type: 'Faculty Coordinator', name: 'Sudhakar', phone: '+91 8073038440' }
+                ]
+            },
+            'volleyball': {
+                name: 'Volleyball',
+                category: 'Outdoor Sports',
+                fee: '₹499',
+                icon: 'fas fa-volleyball-ball',
+                description: 'Team volleyball tournament with 6+6 players. Maximum 3 hits per side with standard volleyball rules.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'Sports Complex',
+                teamSize: '6 Main Players + 6 Substitutes',
+                contactPerson: 'Shreyas - +91 9449405318',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    '6 Main Players + 6 Substitutes',
+                    'Max 3 hits per side, same player cannot hit twice (block not counted)',
+                    'Ball can be played off the net during volley',
+                    'Net touch on serve = re-serve',
+                    'Ball on the line is "IN"',
+                    'Matches follow standard volleyball rules'
+                ],
+                coordinators: [
+                    { type: 'Student Coordinator', name: 'Shreyas', phone: '+91 9449405318' },
+                    { type: 'Faculty Coordinator', name: 'Sudhakar', phone: '+91 8073038440' }
+                ]
+            },
+            'throwball': {
+                name: 'Throwball',
+                category: 'Outdoor Sports',
+                fee: '₹499',
+                icon: 'fas fa-volleyball-ball',
+                description: 'Team throwball tournament with 7+5 players. Ball must be thrown within 3 seconds after being caught.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'Sports Complex',
+                teamSize: '7 Playing + 5 Substitutes',
+                contactPerson: 'Shreyas - +91 9449405318',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Team size: 7 Playing + 5 Substitutes',
+                    'Serve within 5 seconds after whistle, from service zone',
+                    'Ball must be thrown within 3 seconds, from above shoulder line, one hand only',
+                    'Ball on line = IN',
+                    'Rotation must be maintained throughout the set',
+                    'Points scored when opponent fouls or ball lands in court'
+                ],
+                coordinators: [
+                    { type: 'Student Coordinator', name: 'Shreyas', phone: '+91 9449405318' },
+                    { type: 'Faculty Coordinator', name: 'Sudhakar', phone: '+91 8073038440' }
+                ]
+            },
+            'carrom': {
+                name: 'Carrom',
+                category: 'Indoor Sports',
+                fee: '₹199',
+                icon: 'fas fa-circle',
+                description: '2v2 carrom tournament with 20-minute matches. Game style format with highest points winner.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'Indoor Games Hall',
+                teamSize: '2v2 (Doubles)',
+                contactPerson: 'Shreyas - +91 9449405318',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    '2v2, 20 mins per game',
+                    'Preliminary: One set, Other rounds: Best of 3',
+                    'Winner = highest points',
+                    'Striker rules and Queen rules as per standard carrom',
+                    'If final piece is pocketed before Queen, penalty applies'
+                ],
+                coordinators: [
+                    { type: 'Student Coordinator', name: 'Shreyas', phone: '+91 9449405318' },
+                    { type: 'Faculty Coordinator', name: 'Sudhakar', phone: '+91 8073038440' }
+                ]
+            },
+            'yoga': {
+                name: 'Yoga',
+                category: 'Wellness',
+                fee: '₹99',
+                icon: 'fas fa-leaf',
+                description: 'Yoga asana competition with compulsory Surya Namaskara and optional asanas. Scored out of 100 marks.',
+                date: 'September 28-29, 2025',
+                timing: '7:00 AM - 10:00 AM',
+                venue: 'Yoga Hall',
+                teamSize: 'Individual',
+                contactPerson: 'Shreyas - +91 9449405318',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Part A (Compulsory Asanas, 30 sec each): Surya Namaskara (12 Postures), Paschimottanasana, Sarvangasana, Purna Dhanurasana, Garudasana, Karna Peedasana',
+                    'Part B (Optional Asanas, 15 sec each, select 4): Men: Mayurasana, Padma Bakasana, Hanumanasana, Tittibhasana, etc.',
+                    'Women: Vatayanasana, Purna Bhujangasana, Purna Matsyendrasana, Ekapad Shirasana, etc.',
+                    'Scoring: Surya Namaskara: 10 Marks, Part A (5 Asanas): 50 Marks, Part B (4 Optional Asanas): 40 Marks, Total: 100 Marks'
+                ],
+                coordinators: [
+                    { type: 'Student Coordinator', name: 'Shreyas', phone: '+91 9449405318' },
+                    { type: 'Faculty Coordinator', name: 'Sudhakar', phone: '+91 8073038440' }
+                ]
+            },
+            // Cultural Events
+            'solo-dance': {
+                name: 'Solo Dance',
+                category: 'Dance',
+                fee: '₹99',
+                icon: 'fas fa-music',
+                description: 'Any dance style allowed (classical, folk, western, hip-hop, freestyle, fusion). Time limit: 3–5 minutes per participant.',
+                date: 'September 28-29, 2025',
+                timing: '2:00 PM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Individual',
+                contactPerson: 'Roopesh - +91 9740659531',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Time limit: 3–5 minutes per participant',
+                    'Any dance style allowed',
+                    'Pre-recorded music (.mp3) to be submitted at least 1 hour before the event',
+                    'Props allowed with prior intimation'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Shilpa PUC – 9620278166, Shilpa Pradeep – 9845118266', phone: '' },
+                    { type: 'Student Coordinator', name: 'Roopesh', phone: '+91 9740659531' }
+                ]
+            },
+            'group-dance': {
+                name: 'Group Dance',
+                category: 'Dance',
+                fee: '₹499',
+                icon: 'fas fa-users',
+                description: 'Team size: Min 4 – Max 12 members. Time limit: 4–6 minutes (including entry/exit). No hazardous materials allowed.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 4 – Max 12 members',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Team size: Min 4 – Max 12 members',
+                    'Time limit: 4–6 minutes (including entry/exit)',
+                    'Music track (.mp3) must be submitted at least 1 hour before the event',
+                    'No fire/water/hazardous materials on stage'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Shilpa PUC – 9620278166, Shilpa Pradeep – 9845118266', phone: '' },
+                    { type: 'Student Coordinator', name: 'Ashraf', phone: '+91 8217749614' }
+                ]
+            },
+            'group-singing': {
+                name: 'Group Singing',
+                category: 'Music',
+                fee: '₹499',
+                icon: 'fas fa-microphone',
+                description: 'Team size: Min 2 – Max 6 participants. Time limit: 4–6 minutes. Songs in Kannada, Hindi, or English.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 4 – Max 12 members',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Each team must consist of minimum 2 and maximum 6 participants.',
+                    'Each team will be given 4–6 minutes to perform.',
+                    'Songs in KANNADA, HINDI, ENGLISH languages.',
+                    'Both live instruments and karaoke tracks are allowed.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Ms. Pranitha – 7025686127, Mr Shoib Paasha – 7892175476, Ms. Masuma – 6002213237', phone: '' },
+                    { type: 'Student Coordinator', name: 'Suprabha, Tel', phone: '+91 6364380565' }
+                ]
+            },
+            'solo-singing': {
+                name: 'Solo Singing',
+                category: 'Music',
+                fee: '₹99',
+                icon: 'fas fa-microphone-alt',
+                description: 'Time limit: 3–4 minutes. Songs in Kannada, Hindi, or English only. Live instruments allowed.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Participants must register their names on or before Last Date.',
+                    'Each participant will get a maximum of 3–4 minutes to perform.',
+                    'Participants may sing in KANNADA, HINDI, ENGLISH language .',
+                    'Songs must be appropriate and free from offensive or abusive content.',
+                    'Live musical instruments are allowed only if arranged by the participant.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mrs Pranitha - 7025686127, Mr Shoib Pasha - 7892175476, Ms. Masuma - 6002213237', phone: '' },
+                    { type: 'Student Coordinator', name: 'Srivibhu ', phone: '+91 9739549274' }
+                ]
+            },
+            'poem-recitation': {
+                name: 'Poem Recitation',
+                category: 'Performance',
+                fee: '₹99',
+                icon: 'fas fa-feather-alt',
+                description: 'Languages: Kannada, Hindi, English. Recitation from memory (paper allowed). Time limit: 2–3 minutes.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Languages: Kannada, Hindi, English.',
+                    'Recitation should be from memory (paper allowed)..',
+                    '2–3 minutes per participant.',
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Priyanka - 8867274832', phone: '' },
+                    { type: 'Student Coordinator', name: 'Shakti', phone: '+91 7760641341' }
+                ]
+            },
+            'ramp-walk': {
+                name: 'Ramp Walk',
+                category: 'Performance',
+                fee: '₹499',
+                icon: 'fas fa-tshirt',
+                description: 'Theme: \'Vastra: The Narrative of India\'s States\'. Outfits must reflect cultural/linguistic diversity of India.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Theme & Attire: Stick to the theme. Your outfit should be stylish, well-fitting, and appropriate. Showcase your personal flair!',
+                    'Walk the Walk: Strut with confidence! Maintain good posture, a steady pace, and a captivating expression. Perfect your entrance, pose, and exit.',
+                    'Time is Key: Respect the clock! Each walk has a strict time limit. Be prepared to move efficiently.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr Ashkar Ali - 8075449395, Mrs Priyadarshini- 9206554598, Ms. Masuma - 6002213237', phone: '' },
+                    { type: 'Student Coordinator', name: 'Chinnabikka', phone: '+91 9739066936' }
+                ]
+            },
+            'rapping-competition': {
+                name: 'Rapping Competition',
+                category: 'Performance',
+                fee: '₹99',
+                icon: 'fas fa-microphone',
+                description: 'Lyrics and performance must be 100% original. Time limit: 2–4 minutes. No pre-recorded vocals allowed.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Originality is King: All lyrics and content must be 100% original. Plagiarism from other artists\' work will lead to immediate disqualification.',
+                    'Time Limit: Each performance will have a strict time limit (e.g., 2-4 minutes). ',
+                    'Content and Language: The content should be appropriate for a college-wide audience.',
+                    'No Pre-recorded Vocals: Participants must perform their raps live.A backing instrumental track is permitted'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr Ashkar Ali - 8075449395  Mrs Priyadarshini- 9206554598', phone: '' },
+                    { type: 'Student Coordinator', name: 'Vaishnavi', phone: '+91 9380175836' }
+                ]
+            },
+            'reels-making': {
+                name: 'Reels Making Competition',
+                category: 'Performance',
+                fee: '₹99',
+                icon: 'fas fa-video',
+                description: 'Theme: College Life Moments. Duration: 30–90 seconds, vertical format. Must be shot & edited on event premises.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Duration & Format: Reels 30 to 90 seconds only, vertical format (e.g., 9:16)  ',
+                    'Originality: Content must be original. Plagiarism or copying existing reels will lead to disqualification.',
+                    'Participants: Can be individual or team (max. 4 members).',
+                    'Music/Clips: Use of copyright-free or Instagram-available music only.',
+                    'Disqualification: Use of vulgarity, political/religious controversy.',
+                    'Production: Shot and edited entirely on event premises'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mrs Priyadarshini - 9206554598', phone: '' },
+                    { type: 'Student Coordinator', name: 'Rakshita', phone: '+91 7022863692' }
+                ]
+            },
+            'face-painting': {
+                name: 'Face Painting',
+                category: 'Art',
+                fee: '₹99',
+                icon: 'fas fa-palette',
+                description: 'Only non-toxic, skin-safe paints allowed. Time limit: 60 minutes. Solo or pairs (1 painter + 1 model).',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Only non-toxic, skin-safe paints should be used. (Acrylic, oil, or permanent colors are strictly prohibited.)',
+                    'The time limit for painting will be 60 min (can be fixed by organizers).',
+                    'Participants can work individually or in pairs (one painter, one model).',
+                    'The model’s face must be clean, with no makeup applied beforehand.',
+                    'The painting must cover at least half of the face, but full-face painting is also permitted.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Priyanka - 8867274832', phone: '' },
+                    { type: 'Student Coordinator', name: 'Trisha', phone: '+91 7676537313' }
+                ]
+            },
+            'logo-tagline-creation': {
+                name: 'Logo & Tagline Creation',
+                category: 'B.COM, BBA',
+                fee: '₹99 / ₹499',
+                icon: 'fas fa-paint-brush',
+                description: 'Create original logos and taglines. Hand-drawn accepted but must be submitted digitally. Tagline ≤ 8 words.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Eligibility:',
+                    'The competition is open to students from recognized colleges.',
+                    'Each participant must carry a valid college ID card.',
+                    'Students may participate Individual or  2 in a team.',
+                    'Registration:',
+                    'Participants must register before the deadline through the official link/ registration desk.',
+                    'Late entries will not be accepted',
+                    'Guidelines for Logo and Tagline creation.',
+                    'The logo must be original and not copied from any existing designs.',
+                    'The logo should be creative, simple and relevant.',
+                    'Hand drawn logos are acceptable as well as must be submitted in digital form.',
+                    'Participants must provide a short explanation of the concept behind the design.',
+                    'Tagline should not exceed 8 words.',
+                    'Tagline must align with the theme/ event/brand idea.',
+                    'Vulgar, offensive or Plagiarized entries will be disqualified.',
+                    'Judging Criteria:',
+                    'Logo:',
+                    'Creativity and Originality (30%)',
+                    'Relevance to theme (25%)',
+                    'Aesthetic appeal (25%)',
+                    'Simplicity & versatility (20%)',
+                    'Tagline:',
+                    'Creativity and Originality (40%)',
+                    'Relevance & Clarity (30%)',
+                    'Catchiness/ impact (30%)',
+                    'General Rules:',
+                    'The decision of the judge will be final and binding.',
+                    'Plagiarism will lead to immediate disqualification.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Smt Shubha', phone: '+91 9901003187' },
+                    { type: 'Student Coordinator', name: 'Bindushree - 9380852969, Gagan Surya - 7406980133', phone: '' }
+                ]
+            },
+            'business-quiz': {
+                name: 'Business Quiz',
+                category: 'B.COM, BBA',
+                fee: '₹99 / ₹499',
+                icon: 'fas fa-question-circle',
+                description: 'Team of exactly 2 members. Two rounds: preliminary written test and live final with buzzer rounds.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Registration fee is ₹99 (solo) / ₹499 (team)',
+                    '1. Eligibility and Team Formation',
+                    'Eligibility: The competition is open to all students currently enrolled in the college, regardless of their year or course of study.',
+                    'Team Size: Each participating team must consist of exactly two members. No single-member teams or groups of more than two will be allowed.',
+                    'Registration: Teams must register within the specified deadline. Late registrations will not be accepted. All team members\' details must be provided accurately during registration.',
+                    '2. Competition Format',
+                    'Rounds: The competition will consist of two rounds: a preliminary written round and a final stage.',
+                    'Preliminary Round: This round will be a written test. The top six teams with the highest scores will qualify for the final stage.',
+                    'Final Stage: This will be a live, on-stage quiz with multiple rounds, including direct questions, buzzer rounds, and audio-visual questions. The exact format and rules for the final stage will be explained by the quizmaster at the beginning of the event',
+                    '3. Rules and Regulations',
+                    'Code of Conduct: All participants are expected to maintain a high standard of academic integrity and sportsmanship. Any form of cheating or disruptive behavior will result in immediate disqualification.',
+                    'Electronic Devices: The use of mobile phones, smartwatches, or any other electronic devices is strictly prohibited during both rounds. If a participant is found using a device, their team will be immediately disqualified.',
+                    'Decision of the Quizmaster and Judges: All decisions made by the quizmaster and the judging panel will be final and binding. No appeals will be entertained.',
+                    '4. General Conditions',
+                    'Intellectual Property: All questions, materials, and content used in the competition are the intellectual property of the college. They may not be reproduced or distributed without explicit permission.',
+                    'Liability: The college and its organizers are not liable for any injuries or damages sustained by participants during the event. Participants are responsible for their own well-being.',
+                    'Consent: By registering for the competition, participants agree to these terms and conditions. The college reserves the right to use photos or videos taken during the event for promotional purposes.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr. Harish', phone: '+91 7483449216' },
+                    { type: 'Student Coordinator', name: 'Keerthana - 7676579200, Sanmukha - 9916498917', phone: '' }
+                ]
+            },
+            'best-manager': {
+                name: 'Business Quiz',
+                category: 'B.COM, BBA',
+                fee: '₹199',
+                icon: 'fas fa-user-tie',
+                description: 'Individual participation. 3 rounds: IQ/Business quiz, Managerial interview, Case Study/Crisis Management.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Individual Participation only (no teams allowed).',
+                    'The event is open to all UG and PG students .',
+                    'Participants must carry a valid college ID card.',
+                    'Latecomers will not be allowed to participate in that round.',
+                    'Any form of misbehavior, indiscipline, or disrespect towards coordinators/judges will result in disqualification.',
+                    'The event will consist of multiple rounds .',
+                    'Participants must strictly follow the time limits given in each round.',
+                    'Use of mobile phones, gadgets, or unfair means during the rounds is strictly prohibited.',
+                    'Only those who qualify in a round can proceed to the next.',
+                    'The decision of judges will be final and binding in all rounds.',
+                    'Round 1 - IQ ',
+                    'Self Introduction followed by Business quiz (GK, business aptitude, ',
+                    'reasoning, current affairs).',
+                    'Timer Based questions who answer`s first will be on the lead',
+                    'Round 2 – Stress interview / managerial interview.',
+                    'Pressure Questions',
+                    'Situational / Managerial Dilemmas',
+                    'Stress-Building Questions',
+                    'Creative',
+                    'Round 3 – Case Study / Crisis Management',
+                    'Current case study'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mis Mary', phone: '+91 9513589944' },
+                    { type: 'Student Coordinator', name: 'Risha - 8660842574, Prajwal - 8884113531', phone: '' }
+                ]
+            },
+            'startup-ideas': {
+                name: 'New Startup Ideas (Startup Spark 2025)',
+                category: 'B.COM, BBA',
+                fee: '₹99 / ₹499',
+                icon: 'fas fa-lightbulb',
+                description: 'Teams up to 4 members. Original ideas only. Business plan feasible for ≤ ₹25 lakh capital.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Registration fee is ₹99 (solo) / ₹499 (team)',
+                    'Terms and Conditions The Applicants must fulfil the following criteria:',
+                    'The idea/plan must be as per Indian Standards.',
+                    'The minimum participant is one and maximum is 4 in a group or team.',
+                    'The business plan should have a determinable revenue model of small-scale industries with the capital of Rs 25 Lakh ( models presentation via PPT or charts).',
+                    'Should be able to verbally communicate in English.',
+                    'The business plan should not belong to following industries- alcohol, tobacco, gambling, firearms, explosives or any illegal Business.',
+                    'The theme of the model will be based on Product and Services.',
+                    'The Contestant acknowledges that he/she has voluntarily chosen to participate in the Event at his/her free-will and is willing to bear all risk, costs & consequences arising from such participation in the Event',
+                    'The Organizer also reserves the right to disqualify a Contestant in case a in-disciplinary is found and registration amount will not be refunded.',
+                    'ID card is Compulsory'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Smt. Sravanthi', phone: '+91 8150016940' },
+                    { type: 'Student Coordinator', name: 'Manya - 6363898837, Veeresh - 9353257592', phone: '' }
+                ]
+            },
+            'appathon': {
+                name: 'Appathon (Web Dev)',
+                category: 'BCA/MCA',
+                fee: '₹99 / ₹499',
+                icon: 'fas fa-code',
+                description: 'Languages: HTML, CSS, JavaScript. Duration: 10:30 AM – 3:00 PM. 3 rounds, each 2 hours. Team size: 1 or 2.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Registration fee is ₹99 (solo) / ₹499 (team)',
+                    'Rounds: 3 Rounds.',
+                    'Team Size: 2 members or solo.',
+                    'Duration: 2 hours per round'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Dr. Nageshwari - 8050773139', phone: '' },
+                    { type: 'Student Coordinator', name: 'Shrivibhu M S - 9739549274, Somu Karthik - 8618650410', phone: '' }
+                ]
+            },
+            'latent-bug': {
+                name: 'Latent Bug (Debugging)',
+                category: 'BCA/MCA',
+                fee: '₹99 / ₹499',
+                icon: 'fas fa-bug',
+                description: '3 rounds: Preliminary (C), Semi (C++), Final (Java). Team size: 1 or 2. Each round: 2 hours.',
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Registration fee is ₹99 (solo) / ₹499 (team)',
+                    'Total 3 Rounds (After each round, there\'s a 10-15 minute break. This allows participants to rest, recharge, and prepare for the next round..)',
+                    'Preliminary Round will be on C language',
+                    'Semi-Final will be on C++',
+                    'Final will be on Java ',
+                    'Team Size: 2 members or solo.',
+                    'Duration: 2 hours per round',
+                    'Task:',
+                    '1. Identify the bug',
+                    '2. Explain the issue.',
+                    '3. Provide the corrected code.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr. Deepak - 9986310811', phone: '' },
+                    { type: 'Student Coordinator', name: 'Sachin Kumar Ray - 9945364268, Kalai Selvi R - 7204080968', phone: '' }
+                ]
+            },
+            // MBA Department
+            'digital-treasure-hunt': {
+                name: "Digital Treasure Hunt",
+                category: "MBA",
+                fee: "₹200",
+                icon: "fas fa-search",
+                description: "Teams of min 3, max 4 members. Use provided computers only. Clues solved in sequence.",
+                date: 'September 29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 3 – Max 4 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Participants can be PUC/UG/PG students from recognized institutions.',
+                    'A valid ID card must be presented at the time of registration and on the day of the event.',
+                    'Registration fee per team is ₹200, which is non-refundable.',
+                    'Each team can have a Minimum of 3members & maximum of 4 members.',
+                    'Teams must report to the event venue at least 30 minutes before the scheduled time.',
+                    'Any form of misconduct, unfair practices, or use of prohibited aids will lead to disqualification. Judges’ and faculty coordinators’ decisions will be final and binding.',
+                    'In case of any disputes, the organizing committee reserves the right to make the final decision.',
+                    'Teams can use the computers or digital devices provided; personal gadgets.',
+                    'Clues must be solved in sequence; skipping a clue will not be allowed. Each clue solved will be verified by the event coordinators before the team proceeds.',
+                    'Teams are strictly prohibited from seeking outside help or copying answers from chat GPT, google, others.',
+                    'Time taken to complete all clues will determine the winners. In case of a tie, a tie-breaker puzzle will be given.',
+                    'All participants will get certificate of participation.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr. Chethan VK', phone: '9632296669' },
+                    { type: 'Student Coordinator', name: 'Ashraf', phone: '8217749614' }
+                ]
+            },
+            'crazy-minute-challenges': {
+                name: "Crazy Minute Challenges",
+                category: "MBA",
+                fee: "₹200",
+                icon: "fas fa-clock",
+                description: "Teams of 3–4. Multiple 1-minute tasks per round. Judges evaluate creativity, teamwork, performance.",
+                date: 'September 29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 3 – Max 4 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Participants can be PUC/UG/PG students from recognized institutions.',
+                    'A valid ID card must be presented at the time of registration and on the day of the event.',
+                    'Registration fee per team is ₹200, which is non-refundable.',
+                    'Each team can have a Minimum of 3members & maximum of 4 members.',
+                    'Teams must report to the event venue at least 30 minutes before the scheduled time.',
+                    'Any form of misconduct, unfair practices, or use of prohibited aids will lead to disqualification. Judges’ and faculty coordinators’ decisions will be final and binding.',
+                    'In case of any disputes, the organizing committee reserves the right to make the final decision.',
+                    'Each round will have 1 minute to complete the assigned task.',
+                    'Tasks must be performed only by team members; external assistance is not permitted.',
+                    'If a team fails to complete a round in time, they will be eliminated or given reduced points (based on judge’s discretion).',
+                    'Safety of participants during physical activities (like balancing or tower building) must be ensured—reckless behaviour may lead to disqualification.',
+                    'Judges will evaluate based on creativity, teamwork, performance, and adherence to instruction.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr. Chethan VK', phone: '9632296669' },
+                    { type: 'Student Coordinator', name: 'Swetha', phone: '7483546734' }
+                ]
+            },
+            // MCA/BCA Technical Events
+            'code-crafting': {
+                name: "Code Crafting",
+                category: "BCA/MCA",
+                fee: "₹99",
+                icon: "fas fa-laptop-code",
+                description: "Open to individuals (MCA). Coding challenges on-site. Allowed languages: C, Java, Python.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Eligibility',
+                    'Open to all registered participants (individuals or teams, as specified by organizers).',
+                    'Each participant must carry a valid college/company ID card.',
+                    'Team Formation',
+                    'Participants can compete individually or in teams (maximum 2–3 members, as decided).',
+                    'Cross-college/department teams may be allowed based on event guidelines.',
+                    'Event Structure',
+                    'The event will consist of one or more rounds (e.g., elimination, coding challenge, final round).',
+                    'Problem statements will be provided on the spot through the chosen platform (e.g., Hacker Rank, Code Chef, or offline IDEs).',
+                    'Time duration for each round will be strictly followed.',
+                    'Coding Guidelines',
+                    'Participants can use programming languages specified by the organizers (e.g., C, Java, Python).',
+                    'Code should be original; plagiarism or copying from external sources will lead to disqualification.',
+                    'Solutions will be evaluated based on:',
+                    'Correctness (passing test cases)',
+                    'Efficiency (time and space complexity)',
+                    'Code quality (readability, proper use of functions, comments if required)',
+                    'Fair Play',
+                    'Internet usage (other than competition platform) is not allowed.',
+                    'Use of mobile phones, smart devices, or external storage during the event is strictly prohibited.',
+                    'Any form of malpractice, discussion with other teams, or cheating will result in immediate disqualification.',
+                    'Judging & Results',
+                    'Judges’ decisions will be final and binding.',
+                    'In case of a tie, the following criteria will be considered:',
+                    'Number of problems solved',
+                    'Execution time of submitted solutions',
+                    'Time of submission (earlier submission ranks higher)',
+                    'General Instructions',
+                    'Participants must report to the venue/platform 15 minutes before the event starts.',
+                    'Late entry will not be entertained.',
+                    'Organizers reserve the right to modify rules or structure if necessary.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mrs. Priyanka – 8310752590, Ms. Aishwarya C H – 8088985014', phone: '' },
+                    { type: 'Student Coordinator', name: 'Anantashri B C- 6364697262, Shamshuddin Kadri – 9353172807, Likitha P S – 9663083306, Shantinath - 886766162', phone: '' }
+                ]
+            },
+            'technical-quiz': {
+                name: "Technical Quiz",
+                category: "BCA/MCA",
+                fee: "₹499",
+                icon: "fas fa-laptop-code",
+                description: "Team size up to 2–3. Multiple rounds (MCQ, rapid fire, visual/audio). No mobile or internet use.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Eligibility',
+                    'Open to all registered participants (students/professionals as per event category).',
+                    'Participants must carry a valid ID card.',
+                    'Team Formation',
+                    'The quiz can be attempted individually or in teams (maximum 2–3 members, as per event guidelines).',
+                    'Cross-department or cross-college teams may be allowed depending on rules set by organizers.',
+                    'Event Structure',
+                    'The quiz will be conducted in multiple rounds (e.g., Preliminary, Semi-Final, Final).',
+                    'Rounds may include:',
+                    'MCQs (Multiple Choice Questions)',
+                    'Rapid Fire',
+                    'Visual/Audio-based questions',
+                    'Practical/Problem-Solving questions',
+                    'Time allotted for each round will be strictly followed.',
+                    'Quiz Guidelines',
+                    'Each correct answer will carry specific marks; wrong answers may carry negative marking if specified.',
+                    'No extra time will be given once the round ends.',
+                    'Participants must answer only when prompted and should not shout out answers.',
+                    'Use of mobile phones, smart devices, or internet search is strictly prohibited.',
+                    'Fair Play',
+                    'Any attempt to cheat, communicate with other teams, or disrupt the event will lead to disqualification.',
+                    'Decisions by the Quiz Master/Organizers will be final and binding.',
+                    'Judging & Results',
+                    'Teams/participants will be shortlisted for the next round based on their scores.',
+                    'In case of a tie:',
+                    'A tie-breaker round/question will be conducted.',
+                    'If still tied, earliest correct response will be considered.',
+                    'General Instructions',
+                    'Participants must report at the venue/platform 15 minutes before the quiz starts.',
+                    'Latecomers will not be allowed once the quiz begins.',
+                    'Organizers reserve the right to modify rules, structure, or format if necessary.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Mr. Deepak Ganer – 9986310811, Ms. Aishwarya C H – 8088985014', phone: '' },
+                    { type: 'Student Coordinator', name: 'Anantashri B C- 6364697262, Shamshuddin Kadri – 9353172807, Likitha P S – 9663083306, Shantinath - 886766162', phone: '' }
+                ]
+            },
+            // Department Events
+            'public-speaking': {
+                name: "Public Speaking - AI: The Future of Classrooms or the End of Teachers?",
+                category: "Language",
+                fee: "₹99",
+                icon: "fas fa-microphone",
+                description: "Topic: AI: The Future of Classrooms or the End of Teachers. Individual presentation competition.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Max. time- 8 minutes',
+                    'Language is English. Offensive or inappropriate language leads to disqualification',
+                    'Carrying paper material or electronic gadgets is not allowed.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Ms. Pranitha E V', phone: '7025686127 ' },
+                    { type: 'Student Coordinator', name: 'Fiza Mehek', phone: '8111072326' }
+                ]
+            },
+            'literary-quest': {
+                name: "Literary Quest (Treasure Hunt)",
+                category: "Language",
+                fee: "₹199",
+                icon: "fas fa-book",
+                description: "Literature-based treasure hunt with clues and challenges. Team-based competition.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 4 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'Team Registration: Each team must have 4 members',
+                    'Fair Play: No use of smartphones. Sabotage, disrupting other teams leads to immediate disqualification. ',
+                    'Time Limit'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Brinda Narasimhan', phone: '9538974756 ' },
+                    { type: 'Student Coordinator', name: 'Vaishnavi C', phone: '7204576244' }
+                ]
+            },
+            'debate-ai-education': {
+                name: "ಕೃತಕ ಬುದ್ದಿಮತ್ತೆ (AI) ಶೈಕ್ಷಣಿಕ ಕ್ಷೇತ್ರಕ್ಕೆ ಪೂರಕವೇ? ಮಾರಕವೇ?",
+                category: "Language",
+                fee: "₹99",
+                icon: "fas fa-comments",
+                description: "Debate competition on AI in Education. Teams argue for and against the motion.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'ಸ್ಪರ್ಧೆಯು ಕನ್ನಡ ಭಾಷೆಯಲ್ಲಿರುತ್ತದೆ.',
+                    'ಪ್ರತಿ ಕಾಲೇಜಿನಿಂದ ವಿಷಯದ ಪರವಾಗಿ ಅಥವಾ ವಿರೋಧವಾಗಿ ಮಾತನಾಡಲು ೬ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ ಅವಕಾಶವಿದೆ.',
+                    'ವಿಷಯವನ್ನು ಪ್ರಸ್ತುತ ಪಡಿಸಲು ೪+೧ ರಷ್ಟು ಸಮಯವನ್ನು ನಿಗಧಿಪಡಿಸಲಾಗಿದೆ.',
+                    'ಸ್ಪರ್ಧೆಯಲ್ಲಿ ಪಿಯುಸಿ, ಪದವಿ ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಭಾಗವಹಿಸಲು ಅವಕಾಶವಿರುತ್ತದೆ.',
+                    'ತೀರ್ಪುಗಾರರ ನಿರ್ಣಯವೇ ಅಂತಿಮ ನಿರ್ಣಯ.',
+                    'ವಿಶೇಷ ಸೂಚನೆ: ೮ ಜನ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಿಂತ ಕಡಿಮೆ ವಿದ್ಯಾರ್ಥಿಗಳು ನೋಂದಣಿಯಾದರೆ ತೃತಿಯ ಬಹುಮಾನವನ್ನು ನೀಡಲಾಗುವುದಿಲ್ಲ'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'ಡಾ. ಸಂಗನಗೌಡ ಶಿವಣಗಿ - 8884929549', phone: '' },
+                    { type: 'Student Coordinator', name: 'ಆಕಾಶ್ ಎಮ್- ಬಿಸಿಎ ೩ನೇ ಸೆಮಿಸ್ಟರ್ - 9606303885, ಬಿಸಿಎ ೧ನೇ ಸೆಮಿಸ್ಟರ್ - 9606934197', phone: '' }
+                ]
+            },
+            'kannada-quiz': {
+                name: "ರಸಪ್ರಶ್ನೆ ಸ್ಪರ್ಧೆ: ಕನ್ನಡ ಸಾಹಿತ್ಯ, ಕರ್ನಾಟಕದ ಇತಿಹಾಸ, ರಾಜಕೀಯ, ಭೌಗೋಳ ಮತ್ತು ಸಂಸ್ಕೃತಿ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳಿರುತ್ತವೆ",
+                category: "Language",
+                fee: "₹99",
+                icon: "fas fa-question-circle",
+                description: "Literature, Culture, History, Politics, Geography. Test your knowledge of Karnataka and Kannada.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'ಸ್ಪರ್ಧೆಯು ಕನ್ನಡ ಭಾಷೆಯಲ್ಲಿರುತ್ತದೆ.',
+                    'ಒಂದು ತಂಡದಲ್ಲಿ ೩ ಜನ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮಾತ್ರ ಅವಕಾಶವಿರುತ್ತದೆ.',
+                    'ಒಂದು ಕಾಲೇಜಿನಿಂದ ೩ ತಂಡಗಳಿಗೆ ಮಾತ್ರ ಅವಕಾಶವಿರುತ್ತದೆ.',
+                    'ಸ್ಪರ್ಧೆಯ ಸಮಯದಲ್ಲಿ ಯಾವುದೇ ಪುಸ್ತಕ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಉಪಕರಣಗಳ ಸಹಾಯವನ್ನು ಪಡೆಯುವಂತಿಲ್ಲ.',
+                    'ಸಮಯ ಮೀರಿದ ಉತ್ತರಗಳಿಗೆ ಅಂಕವಿರುವುದಿಲ್ಲ.',
+                    'ಸ್ಪರ್ಧೆಯು ೩ ಹಂತಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ.',
+                    'ಸ್ಪರ್ಧೆಯಲ್ಲಿ ಪಿಯುಸಿ, ಪದವಿ ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಭಾಗವಹಿಸಲು ಅವಕಾಶವಿರುತ್ತದೆ.',
+                    'ತೀರ್ಪುಗಾರರ ನಿರ್ಣಯವೇ ಅಂತಿಮ ನಿರ್ಣಯ.',
+                    'ವಿಶೇಷ ಸೂಚನೆ: ೮ ತಂಡಗಳಿಗಿAತ ಕಡಿಮೆ ತಂಡಗಳು ನೋಂದಣಿಯಾದರೆ ತೃತಿಯ ಬಹುಮಾನವನ್ನು ನೀಡಲಾಗುವುದಿಲ್ಲ'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'ಡಾ. ಶಿವಕುಮಾರ್ ಬಿ ಕೆ - 9945429106', phone: '' },
+                    { type: 'Student Coordinator', name: 'ವಿರೇಶ ಜೆ. ಎಸ್- ಬಿಬಿಎ ೩ನೇ ಸೆಮಿಸ್ಟರ್ - 9353257592, ಅಮೃತಾ - ಬಿಬಿಎ ೧ನೇ ಸೆಮಿಸ್ಟರ್ - 9380473455', phone: '' }
+                ]
+            },
+            'hindi-antakshari': {
+                name: "हंदी अंताक्षरी",
+                category: "Language",
+                fee: "₹499",
+                icon: "fas fa-music",
+                description: "Traditional Hindi song-based game. Teams compete in musical knowledge and quick thinking.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'तीन लोग एक टीम में अंताक्षरी खेल सकती हैं, िजसमें प्रत्येक टीम के सदस्यों की संख्या समान होनी चाहए। ',
+                    'गाने केवल हंदी फ़ल्मी गीत, भजन या लोकप्रय  फ़ल्मी हंदी गीत ही होने चाहए (खेल शुरू होने से ',
+                    'पहले सहमत अनुसार)। ',
+                    'केवल मौलक और मान्य गीत ही गाए जाएँगे – कोई बनाए हुए या अधूरे गीत मान्य नहीं होंगे। ',
+                    'टीमों के बीच पहला अक्षर तय कया जाएगा । ',
+                    'चुनी हुई टीम उस अक्षर से शुरू होने वाला एक पूरा मुखड़ा या अंतरा गाएगी। ',
+                    'अगली टीम को वही गीत गाना होगा िजसका पहला अक्षर, पछले गीत के अंतम अक्षर से शुरू होता हो। ',
+                    'उदाहरण: अगर गीत \'दल\' पर समाप्त होता है → अगला गीत \'ल\' से शुरू होगा। ',
+                    'एक ही गीत को दोबारा नहीं गाया जा सकता। ',
+                    'हर टीम को गीत याद करने और शुरू करने के लए 20–30 सेकंड दए जाएँगे। ',
+                    'समय पर गीत न गाने पर वह पारी खो जाएगी। ',
+                    'गीत स्पष्ट और साफ़ सुनाई देने लायक गाना होगा। ',
+                    'कम से कम एक पूरा मुखड़ा या अंतरा सही गाना ज़रूरी है। ',
+                    'ववाद की िस्थत में जज/होस्ट या श्रोता नणय लेंगे। ',
+                    'गलत बोल या उच्चारण करने पर उस पारी को अमान्य माना जाएगा। ',
+                    'समय पर सही गीत → 10 अंक। ',
+                    'झझक या देरी से सही गीत → 5 अंक। ',
+                    'गलत गीत/बोल या दोहराया हुआ गीत → 0 अंक। ',
+                    'वशेष/दुलभ गीत पर बोनस अंक (जज के नणय अनुसार)। ',
+                    'सबसे अधक अंक पाने वाली टीम वजेता होगी। ',
+                    'सामान्य खेल में, जो टीम गीत नहीं गा पाती, वह बाहर हो जाएगी और अंत में बची हुई टीम वजेता ',
+                    'होगी। ',
+                    'थीम राउंड → कसी दशक (जैसे 90 के दशक) या कसी वशेष गायक/संगीतकार के गीत। ',
+                    'रवस अंताक्षरी → अगला गीत पछले गीत के पहले अक्षर से शुरू करना होगा।'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Dr.Shaikh Imran Abdul Rahim', phone: '9763769975' },
+                    { type: 'Student Coordinator', name: 'Jyothi Kumari - 8867879285, Mohammed Muzzammil - 9611379995', phone: '' }
+                ]
+            },
+            'general-knowledge-quiz': {
+                name: "General Knowledge Quiz",
+                category: "Library",
+                fee: "₹99",
+                icon: "fas fa-globe",
+                description: "Constitution, History, Geography, Sports, Science, Current Affairs. Comprehensive GK competition.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'The competition will be in Kannada, English and Hindi language.',
+                    'Only 6 students from each college are allowed to speak for or against the topic.',
+                    'The time allotted for the presentation of the topic is 4+1 minutes.',
+                    'PUC, Undergraduate and Postgraduate students are eligible to participate in the competition.',
+                    'The decision of the judges is final.',
+                    'Note: 3rd Prize shall not be awarded if less than 8 students.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Anusha Majjagi', phone: '7899112681' },
+                    { type: 'Student Coordinator', name: 'Mahesh V - 8088923061, Gagana - 9483325134', phone: '' }
+                ]
+            },
+            'debate-and-panel-disc': {
+                name: "Debate and Panel Discussion",
+                category: "Library",
+                fee: "₹99",
+                icon: "fas fa-commend",
+                description: "Debate and Panel Discussion: on Reading Habits, Digital libraries VS. Traditional Libraries (Print Materials) etc.",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'The competition will be in Kannada, English and Hindi language.',
+                    'Only 6 students from each college are allowed to speak for or against the topic.',
+                    'The time allotted for the presentation of the topic is 4+1 minutes.',
+                    'PUC, Undergraduate and Postgraduate students are eligible to participate in the competition.',
+                    'The decision of the judges is final.'
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'S. Prasanna kumar', phone: '8310914936' },
+                    { type: 'Student Coordinator', name: 'Abhishek - 8762959859, Kavya NS - 8618941541', phone: '' }
+                ]
+            },
+            'hindi-debate': {
+                name: 'वाद ववाद प्रतयोगता',
+                category: 'Language',
+                fee: '₹99',
+                icon: "fas fa-comments",
+                description: "Topic: Traditional culture Vs modern culture",
+                date: 'September 28-29, 2025',
+                timing: '9:00 AM - 6:00 PM',
+                venue: 'City College',
+                teamSize: 'Min 2 – Max 6 participants',
+                contactPerson: 'Ashraf - +91 8217749614',
+                prize: 'Cash Prize & Certificate',
+                rules: [
+                    'वषय: पारंपरक संस्कृ त और आधुनक संस्कृ त ',
+                    'समय: 5+1 मनट ',
+                    'नयम: एकल प्रतयोगता में प्रतभागयों को अपना भाषण पूरा करने के लए 5 मनट का समय दया ',
+                    'जाएगा और शेष 1 मनट में प्रश्न पूछे जाएंगे और प्रतभागी को अपना बचाव करना होगा। ',
+                    'न्यायाधीशों का नणय अंतम होगा। '
+                ],
+                coordinators: [
+                    { type: 'Faculty Coordinators', name: 'Dr.Shaikh Imran Abdul Rahim', phone: '9763769975' },
+                    { type: 'Student Coordinator', name: 'Patel Dhvanil - 9611379995, Ayush singh Rawat - 8088954420', phone: '' }
+                ]
+            },
+            // Add more events as needed...
+        };
+
+        // Load event details from URL parameters
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEventDetails();
+            loadTheme();
+        });
+
+        function loadEventDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+            const eventName = urlParams.get('name');
+            
+            let selectedEvent = null;
+            
+            if (eventId && allEvents[eventId]) {
+                selectedEvent = allEvents[eventId];
+            } else if (eventName) {
+                // Find event by name
+                selectedEvent = Object.values(allEvents).find(event => 
+                    event.name.toLowerCase() === eventName.toLowerCase()
+                );
+            }
+            
+            if (!selectedEvent) {
+                // Default to Chess if no event found
+                selectedEvent = allEvents['chess'];
+            }
+            
+            displayEventDetails(selectedEvent);
+        }
+
+        function displayEventDetails(event) {
+            // Update all event details
+            document.getElementById('eventTitle').textContent = event.name;
+            document.getElementById('eventCategory').textContent = event.category;
+            document.getElementById('eventFee').textContent = event.fee;
+            document.getElementById('eventDescription').textContent = event.description;
+            document.getElementById('eventDate').textContent = event.date;
+            document.getElementById('eventTiming').textContent = event.timing;
+            document.getElementById('eventVenue').textContent = event.venue;
+            document.getElementById('teamSize').textContent = event.teamSize;
+            document.getElementById('contactPerson').textContent = event.contactPerson;
+            document.getElementById('prizeInfo').textContent = event.prize;
+            
+            // Update icon
+            document.querySelector('#eventIcon i').className = event.icon;
+            
+            // Update rules
+            const rulesList = document.getElementById('eventRules');
+            rulesList.innerHTML = event.rules.map(rule => `<li>${rule}</li>`).join('');
+            
+            // Update coordinators
+            const coordinatorsGrid = document.getElementById('coordinatorsGrid');
+            coordinatorsGrid.innerHTML = event.coordinators.map(coordinator => `
+                <div class="coordinator-card">
+                    <h4>${coordinator.type}</h4>
+                    <p>${coordinator.name}${coordinator.phone ? ' - ' + coordinator.phone : ''}</p>
+                </div>
+            `).join('');
+            
+            // Update register button link
+            const registerBtn = document.getElementById('registerBtn');
+            registerBtn.href = `register.html?event=${encodeURIComponent(event.name)}`;
+            
+            // Update page title
+            document.title = `${event.name} - NINAD 2025`;
+        }
+
+        function shareEvent() {
+            const eventTitle = document.getElementById('eventTitle').textContent;
+            const shareData = {
+                title: `${eventTitle} - NINAD 2025`,
+                text: `Check out ${eventTitle} at NINAD 2025 - City College Jayanagar!`,
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Event link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

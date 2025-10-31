@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - NINAD 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-simple">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="images/loggoo.png" alt="City College Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Registration</h1>
+                        <p>NINAD 2025</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="sports.html" class="nav-link">Sports</a></li>
+                    <li><a href="cultural.html" class="nav-link">Cultural</a></li>
+                    <li><a href="academics.html" class="nav-link">Academics</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="register.html" class="nav-link active">Register</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Form -->
+    <section class="registration-section">
+        <div class="container">
+            <div class="registration-container">
+                <div class="registration-header">
+                    <h2>Register for NINAD 2025</h2>
+                    <p>Fill in your details to participate in the ultimate academic management fest</p>
+                </div>
+
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required aria-label="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required aria-label="Email Address">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required aria-label="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="collegeName">College Name *</label>
+                            <input type="text" id="collegeName" name="collegeName" value="City College Jayanagar" required aria-label="College Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventName">Select Event *</label>
+                        <select id="eventName" name="eventName" required aria-label="Select Event">
+                            <option value="">Choose an event...</option>
+                            <!-- Sports Events -->
+                            <optgroup label="Sports Events">
+                                <option value="Chess">Chess (₹99)</option>
+                                <option value="Volleyball">Volleyball (₹499)</option>
+                                <option value="Throwball">Throwball (₹499)</option>
+                                <option value="Carrom">Carrom (₹199)</option>
+                                <option value="Yoga">Yoga (₹99)</option>
+                            </optgroup>
+                            <!-- Cultural Events -->
+                            <optgroup label="Cultural Events">
+                                <option value="Solo Dance">Solo Dance (₹99)</option>
+                                <option value="Group Dance">Group Dance (₹499)</option>
+                                <option value="Group Singing">Group Singing (₹499)</option>
+                                <option value="Solo Singing">Solo Singing (₹99)</option>
+                                <option value="Poem Recitation">Poem Recitation (₹99)</option>
+                                <option value="Ramp Walk">Ramp Walk (₹499)</option>
+                                <option value="Rapping Competition">Rapping Competition (₹99)</option>
+                                <option value="Reels Making Competition">Reels Making Competition (₹99)</option>
+                                <option value="Face Painting">Face Painting (₹99)</option>
+                            </optgroup>
+                            <!-- Academic Events -->
+                            <optgroup label="Academic Events">
+                                <option value="Logo & Tagline Creation">Logo & Tagline Creation (₹99/₹499)</option>
+                                <option value="Business Quiz">Business Quiz (₹99/₹499)</option>
+                                <option value="Best Manager">Best Manager (₹200)</option>
+                                <option value="New Startup Ideas (Startup Spark 2025)">New Startup Ideas (₹99/₹499)</option>
+                                <option value="Appathon (Web Dev)">Appathon (Web Dev) (₹99/₹499)</option>
+                                <option value="Latent Bug (Debugging)">Latent Bug (Debugging) (₹99/₹499)</option>
+                                <option value="Digital Treasure Hunt">Digital Treasure Hunt (₹200)</option>
+                                <option value="Crazy Minute Challenges">Crazy Minute Challenges (₹200)</option>
+                                <option value="Code Crafting">Code Crafting (₹99)</option>
+                                <option value="Technical Quiz">Technical Quiz (₹499)</option>
+                                <option value="Public Speaking - AI: The Future of Classrooms">Public Speaking (₹99)</option>
+                                <option value="Literary Quest (Treasure Hunt)">Literary Quest (₹199)</option>
+                                <option value="Debate - AI in Education: Boon or Bane">Debate - AI in Education (₹99)</option>
+                                <option value="Kannada Quiz">Kannada Quiz (₹99)</option>
+                                <option value="Hindi Antakshari">Hindi Antakshari (₹199)</option>
+                                <option value="General Knowledge Quiz">General Knowledge Quiz (₹99)</option>
+                                <option value="Hindi Debate Competition">Hindi Debate Competition (₹499)</option>
+                                <option value="Debate and Panel Discussion">Debate and Panel Discussion (₹99)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teamMembers">Team Members (if applicable)</label>
+                        <textarea id="teamMembers" name="teamMembers" placeholder="Enter team member names (one per line)" rows="4" aria-label="Team Members"></textarea>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="registration-fee" id="registrationFee" style="display: none;">
+                        <h3>Registration Fee: <span id="feeAmount">₹0</span></h3>
+                        <div class="payment-section">
+                            <h4>Payment Instructions</h4>
+                            <div class="payment-methods">
+                                <div class="qr-code-section">
+                                    <h5>Scan QR Code to Pay</h5>
+                                    <div class="qr-code">
+                                        <img src="images/qr-placeholder.jpeg" alt="Payment QR Code" id="paymentQR">
+                                    </div>
+                                    <p><strong>UPI ID:</strong> 0798039A0025610.bqr@kotak</p>
+                                    <p><strong>Amount:</strong> <span id="paymentAmount">₹0</span></p>
+                                </div>
+                                <div class="payment-instructions">
+                                    <h5>Payment Steps</h5>
+                                    <ol>
+                                        <li>Scan the QR code or use UPI ID: <strong>0798039A0025610.bqr@kotak</strong></li>
+                                        <li>Enter the exact amount shown above</li>
+                                        <li>Complete the payment</li>
+                                        <li>Take a screenshot of the payment confirmation</li>
+                                        <li>Upload the screenshot below</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="paymentScreenshot">Payment Screenshot *</label>
+                                <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required aria-label="Payment Screenshot">
+                                <small>Upload a clear screenshot of your payment confirmation</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="resetForm()">Reset Form</button>
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <span id="submitText">Register Now</span>
+                            <span class="loading" id="submitLoading" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal" role="dialog" aria-labelledby="successTitle" aria-describedby="successMessage">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="successTitle">Registration Successful!</h3>
+            <p id="successMessage">You have successfully registered for the event.</p>
+            <p><strong>Reference ID:</strong> <span id="referenceId"></span></p>
+            
+            <!-- Payment Screenshot Preview -->
+            <div id="screenshotPreview" style="display: none;">
+                <h4>Payment Screenshot:</h4>
+                <img id="previewImage" alt="Payment Screenshot" style="max-width: 300px; max-height: 200px; border-radius: 8px; margin: 10px 0;">
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeSuccessModal()">Continue</button>
+                <a href="index.html" class="btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; NINAD 2025 | Made with ❤️ by Md Juber</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Event fees mapping
+        const eventFees = {
+            'Chess': 99,
+            'Volleyball': 499,
+            'Throwball': 499,
+            'Carrom': 199,
+            'Yoga': 99,
+            'Solo Dance': 99,
+            'Group Dance': 499,
+            'Group Singing': 499,
+            'Solo Singing': 99,
+            'Poem Recitation': 99,
+            'Ramp Walk': 499,
+            'Rapping Competition': 99,
+            'Reels Making Competition': 99,
+            'Face Painting': 99,
+            'Logo & Tagline Creation': {individual: 99, team: 499},
+            'Business Quiz': {individual: 99, team: 499},
+            'Best Manager': 200,
+            'New Startup Ideas (Startup Spark 2025)': {individual: 99, team: 499},
+            'Appathon (Web Dev)': {individual: 99, team: 499},
+            'Latent Bug (Debugging)': {individual: 99, team: 499},
+            'Digital Treasure Hunt': 200,
+            'Crazy Minute Challenges': 200,
+            'Code Crafting': 99,
+            'Technical Quiz': 499,
+            'Public Speaking - AI: The Future of Classrooms': 99,
+            'Literary Quest (Treasure Hunt)': 199,
+            'Debate - AI in Education: Boon or Bane': 99,
+            'Kannada Quiz': 99,
+            'Hindi Antakshari': 199,
+            'General Knowledge Quiz': 99,
+            'Hindi Debate Competition': 149,
+            'Debate and Panel Discussion': 99
+        };
+
+        // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
+        // TODO: Update this endpoint after deploying Google Apps Script
+        const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxmvgzT6F-t-Drs__ijNURn92Hdau_SxIQs_G9sRTg4uXYFOHGkeD9Owf8f5ZN4Ui2W5g/exec';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            setupFormHandlers();
+            
+            // Pre-fill event if coming from event details page
+            const urlParams = new URLSearchParams(window.location.search);
+            const preSelectedEvent = urlParams.get('event');
+            if (preSelectedEvent) {
+                document.getElementById('eventName').value = preSelectedEvent;
+                updateRegistrationFee();
+            }
+        });
+
+        function setupFormHandlers() {
+            const eventSelect = document.getElementById('eventName');
+            const teamMembers = document.getElementById('teamMembers');
+            const form = document.getElementById('registrationForm');
+            
+            eventSelect.addEventListener('change', updateRegistrationFee);
+            teamMembers.addEventListener('input', updateRegistrationFee);
+            form.addEventListener('submit', handleRegistration);
+        }
+
+        function updateRegistrationFee() {
+            const selectedEvent = document.getElementById('eventName').value;
+            const teamMembersValue = document.getElementById('teamMembers').value.trim();
+            const isTeam = teamMembersValue !== '';
+            const feeSection = document.getElementById('registrationFee');
+            const feeAmount = document.getElementById('feeAmount');
+            const paymentAmount = document.getElementById('paymentAmount');
+            const screenshotField = document.getElementById('paymentScreenshot');
+            
+            if (selectedEvent && eventFees[selectedEvent] !== undefined) {
+                let feeConfig = eventFees[selectedEvent];
+                let fee;
+                if (typeof feeConfig === 'object') {
+                    fee = isTeam ? feeConfig.team : feeConfig.individual;
+                } else {
+                    fee = feeConfig;
+                }
+                
+                if (fee > 0) {
+                    feeAmount.textContent = `₹${fee}`;
+                    paymentAmount.textContent = `₹${fee}`;
+                    feeSection.style.display = 'block';
+                    screenshotField.required = true;
+                } else {
+                    feeAmount.textContent = 'Free';
+                    feeSection.style.display = 'none';
+                    screenshotField.required = false;
+                }
+            } else {
+                feeSection.style.display = 'none';
+                screenshotField.required = false;
+            }
+        }
+
+        async function handleRegistration(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoading = document.getElementById('submitLoading');
+            
+            // Show loading state
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const screenshotFile = formData.get('paymentScreenshot');
+            const registrationData = {
+                timestamp: new Date().toISOString(),
+                referenceId: generateReferenceId(),
+                fullName: formData.get('fullName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                collegeName: formData.get('collegeName'),
+                eventName: formData.get('eventName'),
+                teamMembers: formData.get('teamMembers') || '',
+                paymentScreenshotFilename: screenshotFile ? screenshotFile.name : ''
+            };
+            
+            try {
+                // Handle file base64 if present
+                if (screenshotFile) {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(screenshotFile);
+                    await new Promise((resolve, reject) => {
+                        reader.onload = () => {
+                            const base64 = reader.result.split(',')[1]; // Remove data URL prefix
+                            registrationData.paymentScreenshotBase64 = base64;
+                            registrationData.paymentScreenshotMime = screenshotFile.type;
+                            resolve();
+                        };
+                        reader.onerror = reject;
+                    });
+                }
+                
+                // Send to Google Sheets
+                await saveToGoogleSheets(registrationData);
+                
+                // Save to localStorage as backup
+                let registrations = JSON.parse(localStorage.getItem('NINADRegistrations') || '[]');
+                registrations.push(registrationData);
+                localStorage.setItem('NINADRegistrations', JSON.stringify(registrations));
+                
+                // Show success message with screenshot preview
+                showSuccessModal(registrationData, screenshotFile);
+                
+            } catch (error) {
+                console.error('Registration error:', error);
+                
+                // Fallback: save to localStorage and show message
+                let registrations = JSON.parse(localStorage.getItem('NINADRegistrations') || '[]');
+                registrations.push(registrationData);
+                localStorage.setItem('NINADRegistrations', JSON.stringify(registrations));
+                
+                alert('Registration saved locally due to server error. Please contact organizers to confirm payment and complete registration.');
+                showSuccessModal(registrationData, screenshotFile);
+            } finally {
+                // Reset loading state
+                submitText.style.display = 'inline-block';
+                submitLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        }
+
+        async function saveToGoogleSheets(data) {
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Server error: ${errorText}`);
+            }
+        }
+
+        function generateReferenceId() {
+            return 'NINAD' + Date.now().toString().slice(-6) + Math.random().toString(36).substr(2, 3).toUpperCase();
+        }
+
+        function showSuccessModal(data, screenshotFile) {
+            const modal = document.getElementById('successModal');
+            const message = document.getElementById('successMessage');
+            const referenceId = document.getElementById('referenceId');
+            const screenshotPreview = document.getElementById('screenshotPreview');
+            const previewImage = document.getElementById('previewImage');
+            
+            message.textContent = `You have successfully registered for ${data.eventName}!`;
+            referenceId.textContent = data.referenceId;
+            
+            // Show screenshot preview if available
+            if (screenshotFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    screenshotPreview.style.display = 'block';
+                };
+                reader.readAsDataURL(screenshotFile);
+            } else {
+                screenshotPreview.style.display = 'none';
+            }
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('successModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById('registrationForm').reset();
+            document.getElementById('registrationFee').style.display = 'none';
+            document.getElementById('screenshotPreview').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
